@@ -42,7 +42,7 @@ It is assumed here that you have the necessary Unix-Like knowledge, [`brew`](htt
 5. Run the script.
 
    ```shell
-python3 ./configure.py
+   python3 ./configure.py
    bazel build build_pip_pkg
    bazel-bin/build_pip_pkg artifacts
    ````
