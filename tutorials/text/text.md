@@ -68,6 +68,6 @@ It is assumed here that you have the necessary Unix-Like knowledge, [`brew`](htt
 
 ## Tips&Refer
 
-1. `text` needs to correspond to a minor version of `tensorflow` (eg `tensorflow-macos==2.7.0` and `tensorflow-text==2.7.3`)
+1. `Text` needs to correspond to a minor version of `tensorflow` (eg `tensorflow-macos==2.7.0` and `tensorflow-text==2.7.3`)
 2. Please ensure that your network is stable during the compilation process, and the compilation needs to use the network.
 3. [I add a PR for Apple Silicon support.](https://github.com/tensorflow/text/pull/756)
