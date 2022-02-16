@@ -1,4 +1,4 @@
-# Build TensorFlow Text from source
+# Build TensorFlow Addons from source
 
 ## Necessary conditions
 
@@ -31,43 +31,24 @@ It is assumed here that you have the necessary Unix-Like knowledge, [`brew`](htt
 
    * Usually, the `bazel` installed by `brew` will be the latest version. The latest version often does not match the version required by `text`, which may cause many unexpected problems, so we install it by specifying the version manually.
 
-4. Download and extract `text 2.8.1`.
+4. Download and extract `addons 0.16.1`.
 
    ```shell
-   wget https://github.com/tensorflow/text/archive/refs/tags/v2.8.1.zip
-   unzip ./v2.8.1.zip
-   cd text-2.8.1
+   wget https://github.com/tensorflow/addons/archive/refs/tags/v0.16.1.zip
+   unzip ./v0.16.1.zip
+   cd addons-0.16.1
    ````
 
-5. Modify some parameters of the source code to ensure correct build.
-
-   * `oss_scripts/configure.sh` to modify line 49:
-
-     ```shell
-     pip install tensorflow-macos==2.8.0
-     ````
-
-   * `oss_scripts/run_build.sh` comment out line 17:
-
-     ```shell
-     # source oss_scripts/prepare_tf_dep.sh
-     ````
-
-   * `oss_scripts/pip_package/setup.py` modify behavior 76, 77:
-
-     ````python
-     'tensorflow>=2.8.0, <2.9.0; platform_machine != "arm64" or platform_system != "Darwin"',
-     'tensorflow-macos>=2.8.0, <2.9.0; platform_machine == "arm64" and platform_system == "Darwin"'
-     ````
-
-6. Run the script.
+5. Run the script.
 
    ```shell
-   ./oss_scripts/run_build.sh
+python3 ./configure.py
+   bazel build build_pip_pkg
+   bazel-bin/build_pip_pkg artifacts
    ````
+
 
 ## Tips&Refer
 
-1. `text` needs to correspond to a minor version of `tensorflow` (eg `tensorflow-macos==2.7.0` and `tensorflow-text==2.7.3`)
+1. `Addons` needs the version of `tensorflow`. The specific correspondence is [here](https://github.com/tensorflow/addons/blob/a5cd76d341c594f464a5c9be8e572ed5bd3f3b8b/README.md?plain=1#L80).
 2. Please ensure that your network is stable during the compilation process, and the compilation needs to use the network.
-3. [I add a PR for Apple Silicon support.](https://github.com/tensorflow/text/pull/756)
