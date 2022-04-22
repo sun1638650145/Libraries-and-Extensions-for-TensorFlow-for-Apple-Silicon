@@ -31,34 +31,28 @@
 
    * 通常情况下`brew`安装的`bazel`会是最新版的, 最新版往往和`text`要求的版本不匹配, 这可能会出现很多意想不到的问题, 所以我们通过手动指定版本安装.
 
-4. 下载并解压`text 2.8.1 `.
+4. 下载并解压`text 2.8.2`.
 
    ```shell
-   wget https://github.com/tensorflow/text/archive/refs/tags/v2.8.1.zip
-   unzip ./v2.8.1.zip
-   cd text-2.8.1
+   wget https://github.com/tensorflow/text/archive/refs/tags/v2.8.2.zip
+   unzip ./v2.8.2.zip
+   cd text-2.8.2
    ```
 
 5. 修改源码的一些参数以此确保能正确构建.
 
-   * `oss_scripts/configure.sh `修改第49行为
+   * `oss_scripts/configure.sh`修改第49行为
 
      ```shell
      pip install tensorflow-macos==2.8.0
      ```
 
-   * `oss_scripts/run_build.sh `注释掉第17行
+   * `oss_scripts/run_build.sh`注释掉第17行
 
      ```shell
      # source oss_scripts/prepare_tf_dep.sh
      ```
 
-   * `oss_scripts/pip_package/setup.py` 修改第76, 77行为 
-
-     ```python
-     'tensorflow>=2.8.0, <2.9.0; platform_machine != "arm64" or platform_system != "Darwin"',
-     'tensorflow-macos>=2.8.0, <2.9.0; platform_machine == "arm64" and platform_system == "Darwin"'
-     ```
 
 6. 运行脚本构建.
 

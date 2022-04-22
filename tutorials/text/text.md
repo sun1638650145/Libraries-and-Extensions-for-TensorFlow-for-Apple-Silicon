@@ -31,12 +31,12 @@ It is assumed here that you have the necessary Unix-Like knowledge, [`brew`](htt
 
    * Usually, the `bazel` installed by `brew` will be the latest version. The latest version often does not match the version required by `text`, which may cause many unexpected problems, so we install it by specifying the version manually.
 
-4. Download and extract `text 2.8.1`.
+4. Download and extract `text 2.8.2`.
 
    ```shell
-   wget https://github.com/tensorflow/text/archive/refs/tags/v2.8.1.zip
-   unzip ./v2.8.1.zip
-   cd text-2.8.1
+   wget https://github.com/tensorflow/text/archive/refs/tags/v2.8.2.zip
+   unzip ./v2.8.2.zip
+   cd text-2.8.2
    ````
 
 5. Modify some parameters of the source code to ensure correct build.
@@ -51,13 +51,6 @@ It is assumed here that you have the necessary Unix-Like knowledge, [`brew`](htt
 
      ```shell
      # source oss_scripts/prepare_tf_dep.sh
-     ````
-
-   * `oss_scripts/pip_package/setup.py` modify behavior 76, 77:
-
-     ````python
-     'tensorflow>=2.8.0, <2.9.0; platform_machine != "arm64" or platform_system != "Darwin"',
-     'tensorflow-macos>=2.8.0, <2.9.0; platform_machine == "arm64" and platform_system == "Darwin"'
      ````
 
 6. Run the script.
