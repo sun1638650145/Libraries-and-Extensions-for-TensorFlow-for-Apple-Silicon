@@ -11,22 +11,22 @@ It is assumed here that you have the necessary Unix-Like knowledge, [`brew`](htt
    ```shell
    conda create -n tensorflow-macos python=3.9 # This Python version can also use 3.8
    conda activate tensorflow-macos
-   conda install -c apple tensorflow-deps==2.8.0
+   conda install -c apple tensorflow-deps==2.9.0
    ````
 
 2. Install the `tensorflow-macos` and `tensorflow-metal` plugins.
 
    ```shell
-   pip install tensorflow-macos
-   pip install tensorflow-metal
+   pip install tensorflow-macos==2.9.0
+   pip install tensorflow-metal==0.5.0
    ````
 
-3. Install `bazel 4.2.2`.
+3. Install `bazel 5.1.1`.
 
    ```shell
-   wget https://raw.githubusercontent.com/Homebrew/homebrew-core/210bef2d570f0635e07009f4c5242b5e6645ae31/Formula/bazel.rb
+   wget https://raw.githubusercontent.com/Homebrew/homebrew-core/2940e900476b4452c8047c75dcbfc193c6f30341/Formula/bazel.rb
    brew install ./bazel.rb
-   bazel --version # make sure the version is 4.2.2
+   bazel --version # Make sure the version is 5.1.x.
    ````
 
    * Usually, the `bazel` installed by `brew` will be the latest version. The latest version often does not match the version required by `text`, which may cause many unexpected problems, so we install it by specifying the version manually.
@@ -34,9 +34,9 @@ It is assumed here that you have the necessary Unix-Like knowledge, [`brew`](htt
 4. Download and extract `text 2.8.2`.
 
    ```shell
-   wget https://github.com/tensorflow/text/archive/refs/tags/v2.8.2.zip
-   unzip ./v2.8.2.zip
-   cd text-2.8.2
+   wget https://github.com/tensorflow/text/archive/refs/tags/v2.9.0.zip
+   unzip ./v2.9.0.zip
+   cd text-2.9.0
    ````
 
 5. Modify some parameters of the source code to ensure correct build.
@@ -44,13 +44,7 @@ It is assumed here that you have the necessary Unix-Like knowledge, [`brew`](htt
    * `oss_scripts/configure.sh` to modify line 49:
 
      ```shell
-     pip install tensorflow-macos==2.8.0
-     ````
-
-   * `oss_scripts/run_build.sh` comment out line 17:
-
-     ```shell
-     # source oss_scripts/prepare_tf_dep.sh
+     pip install tensorflow-macos==2.9.0
      ````
 
 6. Run the script.
@@ -58,6 +52,12 @@ It is assumed here that you have the necessary Unix-Like knowledge, [`brew`](htt
    ```shell
    ./oss_scripts/run_build.sh
    ````
+
+7. [Please do not forget to install the whl file.](https://github.com/sun1638650145/Libraries-and-Extensions-for-TensorFlow-for-Apple-Silicon/issues/2)
+
+   ```python
+   pip install ./*.whl
+   ```
 
 ## Tips&Refer
 
