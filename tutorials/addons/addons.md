@@ -2,7 +2,7 @@
 
 ## Necessary conditions
 
-It is assumed here that you have the necessary Unix-Like knowledge, [`brew`](https://brew.sh) and [`conda`](https://github.com/conda-forge/miniforge) have been installed in your terminal, and the installation and use methods of `brew` and `conda` will not be repeated here; most importantly, this tutorial is completely based on Apple Silicon (such as M1, M1 Pro or M1 Max) build, so make sure your Mac is Apple Silicon.
+It is assumed here that you have the necessary Unix-Like knowledge, [`brew`](https://brew.sh) and [`conda`](https://github.com/conda-forge/miniforge) have been installed in your terminal, and the installation and use methods of `brew` and `conda` will not be repeated here; most importantly, this tutorial is completely based on Apple Silicon (such as M1, M1 Pro, M1 Max or M1 Ultra) build, so make sure your Mac is Apple Silicon.
 
 ## Step by Step
 
@@ -11,32 +11,32 @@ It is assumed here that you have the necessary Unix-Like knowledge, [`brew`](htt
    ```shell
    conda create -n tensorflow-macos python=3.9 # This Python version can also use 3.8
    conda activate tensorflow-macos
-   conda install -c apple tensorflow-deps==2.8.0
+   conda install -c apple tensorflow-deps==2.9.0
    ````
 
 2. Install the `tensorflow-macos` and `tensorflow-metal` plugins.
 
    ```shell
-   pip install tensorflow-macos
-   pip install tensorflow-metal
+   pip install tensorflow-macos==2.9.0
+   pip install tensorflow-metal==0.5.0
    ````
 
-3. Install `bazel 4.2.2`.
+3. Install `bazel 4.2.x`.
 
    ```shell
    wget https://raw.githubusercontent.com/Homebrew/homebrew-core/210bef2d570f0635e07009f4c5242b5e6645ae31/Formula/bazel.rb
    brew install ./bazel.rb
-   bazel --version # make sure the version is 4.2.2
+   bazel --version # Make sure the version is 4.2.x.
    ````
 
    * Usually, the `bazel` installed by `brew` will be the latest version. The latest version often does not match the version required by `text`, which may cause many unexpected problems, so we install it by specifying the version manually.
 
-4. Download and extract `addons 0.16.1`.
+4. Download and extract `addons 0.17.0`.
 
    ```shell
-   wget https://github.com/tensorflow/addons/archive/refs/tags/v0.16.1.zip
-   unzip ./v0.16.1.zip
-   cd addons-0.16.1
+   wget https://github.com/tensorflow/addons/archive/refs/tags/v0.17.0.zip
+   unzip ./v0.17.0.zip
+   cd addons-0.17.0
    ````
 
 5. Run the script.
@@ -47,6 +47,11 @@ It is assumed here that you have the necessary Unix-Like knowledge, [`brew`](htt
    bazel-bin/build_pip_pkg artifacts
    ````
 
+6. Please do not forget to install the `whl` file.
+
+   ```python
+   pip install artifacts/*.whl
+   ```
 
 ## Tips&Refer
 
