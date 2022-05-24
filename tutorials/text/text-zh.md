@@ -9,7 +9,7 @@
 1. 创建新的环境并安装Apple提供的依赖项.
 
    ```shell
-   conda create -n tensorflow-macos python=3.10 # 这里Python版本也可以使用Python 3.8和3.9
+   conda create -n tensorflow-macos python=3.9 # 这里Python版本也可以使用Python 3.8
    conda activate tensorflow-macos
    conda install -c apple tensorflow-deps==2.9.0
    ```

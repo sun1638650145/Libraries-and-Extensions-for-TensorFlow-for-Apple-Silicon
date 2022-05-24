@@ -31,7 +31,7 @@
 
    * 通常情况下`brew`安装的`bazel`会是最新版的, 最新版往往和`addons`要求的版本不匹配, 这可能会出现很多意想不到的问题, 所以我们通过手动指定版本安装.
 
-4. 下载并解压`addons 0.17.0 `.
+4. 下载并解压`addons 0.17.0`.
 
    ```shell
    wget https://github.com/tensorflow/addons/archive/refs/tags/v0.17.0.zip

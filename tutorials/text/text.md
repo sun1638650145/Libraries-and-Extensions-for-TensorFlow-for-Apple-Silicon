@@ -9,7 +9,7 @@ It is assumed here that you have the necessary Unix-Like knowledge, [`brew`](htt
 1. Create a new Env and install the dependencies provided by Apple.
 
    ```shell
-   conda create -n tensorflow-macos python=3.10 # This Python version can also use 3.8 and 3.9
+   conda create -n tensorflow-macos python=3.9 # This Python version can also use 3.8
    conda activate tensorflow-macos
    conda install -c apple tensorflow-deps==2.9.0
    ````
