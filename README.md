@@ -8,3 +8,6 @@ This Repo will provide TensorFlow libraries and extended build tutorials that re
 * [text](https://github.com/tensorflow/text)
 * To be continued...
 
+## Note ⚠️
+
+`Python 3.10` support has been provided since `tensorflow-macos 2.9.0` and `tensorflow-metal 0.5.0`.

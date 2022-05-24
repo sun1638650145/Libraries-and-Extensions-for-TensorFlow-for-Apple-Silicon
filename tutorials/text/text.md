@@ -2,14 +2,14 @@
 
 ## Necessary conditions
 
-It is assumed here that you have the necessary Unix-Like knowledge, [`brew`](https://brew.sh) and [`conda`](https://github.com/conda-forge/miniforge) have been installed in your terminal, and the installation and use methods of `brew` and `conda` will not be repeated here; most importantly, this tutorial is completely based on Apple Silicon (such as M1, M1 Pro or M1 Max) build, so make sure your Mac is Apple Silicon.
+It is assumed here that you have the necessary Unix-Like knowledge, [`brew`](https://brew.sh) and [`conda`](https://github.com/conda-forge/miniforge) have been installed in your terminal, and the installation and use methods of `brew` and `conda` will not be repeated here; most importantly, this tutorial is completely based on Apple Silicon (such as M1, M1 Pro, M1 Max and M1 Ultra) build, so make sure your Mac is Apple Silicon.
 
 ## Step by Step
 
 1. Create a new Env and install the dependencies provided by Apple.
 
    ```shell
-   conda create -n tensorflow-macos python=3.9 # This Python version can also use 3.8
+   conda create -n tensorflow-macos python=3.10 # This Python version can also use 3.8 and 3.9
    conda activate tensorflow-macos
    conda install -c apple tensorflow-deps==2.9.0
    ````
@@ -31,7 +31,7 @@ It is assumed here that you have the necessary Unix-Like knowledge, [`brew`](htt
 
    * Usually, the `bazel` installed by `brew` will be the latest version. The latest version often does not match the version required by `text`, which may cause many unexpected problems, so we install it by specifying the version manually.
 
-4. Download and extract `text 2.8.2`.
+4. Download and extract `text 2.9.0`.
 
    ```shell
    wget https://github.com/tensorflow/text/archive/refs/tags/v2.9.0.zip

@@ -2,14 +2,14 @@
 
 ## 必要条件
 
-这里假设了您有必要的类Unix知识, 已经在您的终端内安装好了[`brew`](https://brew.sh)和[`conda`](https://github.com/conda-forge/miniforge), 这里不再赘述`brew`和`conda`安装和使用方法; 最重要的是, 这个教程完全基于Apple Silicon(比如M1, M1 Pro 或者 M1 Max)构建, 所以确保您手中的Mac是Apple Silicon.
+这里假设了您有必要的类Unix知识, 已经在您的终端内安装好了[`brew`](https://brew.sh)和[`conda`](https://github.com/conda-forge/miniforge), 这里不再赘述`brew`和`conda`安装和使用方法; 最重要的是, 这个教程完全基于Apple Silicon(比如M1, M1 Pro, M1 Max或M1 Ultra)构建, 所以确保您手中的Mac是Apple Silicon.
 
 ## Step by Step
 
 1. 创建新的环境并安装Apple提供的依赖项.
 
    ```shell
-   conda create -n tensorflow-macos python=3.9 # 这里Python版本也可以使用Python 3.8
+   conda create -n tensorflow-macos python=3.10 # 这里Python版本也可以使用Python 3.8和3.9
    conda activate tensorflow-macos
    conda install -c apple tensorflow-deps==2.9.0
    ```
