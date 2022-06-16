@@ -17,7 +17,7 @@
 2. 安装`tensorFlow-macos`和`tensorflow-metal`插件.
 
    ```shell
-   pip install tensorflow-macos==2.9.0
+   pip install tensorflow-macos==2.9.2
    pip install tensorflow-metal==0.5.0
    ```
 
@@ -31,12 +31,12 @@
 
    * 通常情况下`brew`安装的`bazel`会是最新版的, 最新版往往和`addons`要求的版本不匹配, 这可能会出现很多意想不到的问题, 所以我们通过手动指定版本安装.
 
-4. 下载并解压`addons 0.17.0`.
+4. 下载并解压`addons 0.17.1`.
 
    ```shell
-   wget https://github.com/tensorflow/addons/archive/refs/tags/v0.17.0.zip
-   unzip ./v0.17.0.zip
-   cd addons-0.17.0
+   wget https://github.com/tensorflow/addons/archive/refs/tags/v0.17.1.zip
+   unzip ./v0.17.1.zip
+   cd addons-0.17.1
    ```
 
 5. 运行脚本构建.
@@ -57,3 +57,5 @@
 
 1. `addons`需要和`tensorflow`的版本. 具体对应关系在[这里](https://github.com/tensorflow/addons/blob/a5cd76d341c594f464a5c9be8e572ed5bd3f3b8b/README.md?plain=1#L80).
 2. 编译过程中请保证你的网络稳定, 编译需要使用网络.
+2. [本人添加Apple Silicon Python 3.10支持PR.](https://github.com/tensorflow/addons/pull/2718)
+
