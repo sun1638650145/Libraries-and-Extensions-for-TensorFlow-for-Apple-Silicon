@@ -33,7 +33,7 @@ It is assumed here that you have the necessary Unix-Like knowledge, [`brew`](htt
    bazel --version # Make sure the version is 4.2.x.
    ````
 
-   * Usually, the `bazel` installed by `brew` will be the latest version. The latest version often does not match the version required by `text`, which may cause many unexpected problems, so we install it by specifying the version manually.
+   * Usually, the `bazel` installed by `brew` will be the latest version. The latest version often does not match the version required by `addons`, which may cause many unexpected problems, so we install it by specifying the version manually.
 
 4. Download and extract `addons 0.18.0`.
 
