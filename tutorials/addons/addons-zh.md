@@ -15,14 +15,14 @@
    ```shell
    conda create -n tensorflow-macos python=3.10 # 这里Python版本也可以使用Python 3.8和3.9
    conda activate tensorflow-macos
-   conda install -c apple tensorflow-deps==2.10.0
+   conda install -c apple tensorflow-deps==2.10.0 # 目前Apple没有发布tensorflow-deps 2.11, 但是2.10仍可继续使用
    ```
 
 2. 安装`tensorFlow-macos`和`tensorflow-metal`插件.
 
    ```shell
-   pip install tensorflow-macos==2.10.0
-   pip install tensorflow-metal==0.6.0
+   pip install tensorflow-macos==2.11.0
+   pip install tensorflow-metal==0.7.0
    ```
 
 3. 安装`bazel 4.2.x`.
@@ -35,12 +35,12 @@
 
    * 通常情况下`brew`安装的`bazel`会是最新版的, 最新版往往和`addons`要求的版本不匹配, 这可能会出现很多意想不到的问题, 所以我们通过手动指定版本安装.
 
-4. 下载并解压`addons 0.18.0`.
+4. 下载并解压`addons 0.19.0`.
 
    ```shell
-   wget https://github.com/tensorflow/addons/archive/refs/tags/v0.18.0.zip
-   unzip ./v0.18.0.zip
-   cd addons-0.18.0
+   wget https://github.com/tensorflow/addons/archive/refs/tags/0.19.0.zip
+   unzip ./0.19.0.zip
+   cd addons-0.19.0
    ```
 
 5. 运行脚本构建.
