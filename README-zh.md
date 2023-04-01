@@ -10,4 +10,4 @@
 
 ## 注意 ⚠️
 
-从`tensorflow-macos 2.9.0`和`tensorflow-metal 0.5.0`才开始提供了`Python 3.10`的支持, `tensorflow-text`暂不支持`Python 3.10`.		
+从`tensorflow-macos 2.9.0`和`tensorflow-metal 0.5.0`才开始提供了`Python 3.10`的支持.		
