@@ -1,6 +1,6 @@
 # 从源码构建TensorFlow Addons
 
-## 注意⚠️
+## 注意 ⚠️
 
 `TensorFlow Addons`已经提供全部Python版本的Apple Silicon预编译`whl`文件, 你可以直接从这个[页面](https://pypi.org/project/tensorflow-addons/)下载.
 
@@ -15,32 +15,32 @@
    ```shell
    conda create -n tensorflow-macos python=3.10 # 这里Python版本也可以使用Python 3.8和3.9
    conda activate tensorflow-macos
-   conda install -c apple tensorflow-deps==2.10.0 # 目前Apple没有发布tensorflow-deps 2.11, 但是2.10仍可继续使用
+   conda install -c apple tensorflow-deps==2.10.0 # 目前Apple没有发布tensorflow-deps 2.11和2.12, 2.10就是最新版.
    ```
 
 2. 安装`tensorFlow-macos`和`tensorflow-metal`插件.
 
    ```shell
-   pip install tensorflow-macos==2.11.0
-   pip install tensorflow-metal==0.7.0
+   pip install tensorflow-macos==2.12.0
+   pip install tensorflow-metal==0.8.0
    ```
 
-3. 安装`bazel 4.2.x`.
+3. 安装`bazel 5.3.0`.
 
    ```shell
-   wget https://raw.githubusercontent.com/Homebrew/homebrew-core/210bef2d570f0635e07009f4c5242b5e6645ae31/Formula/bazel.rb
+   wget https://raw.githubusercontent.com/Homebrew/homebrew-core/59dff37de3c670a77c1e9f39b8a4b0f8884a391b/Formula/bazel.rb
    brew install ./bazel.rb
-   bazel --version # 确保版本是4.2.x即可.
+   bazel --version # 确保版本是5.3.0即可.
    ```
 
    * 通常情况下`brew`安装的`bazel`会是最新版的, 最新版往往和`addons`要求的版本不匹配, 这可能会出现很多意想不到的问题, 所以我们通过手动指定版本安装.
 
-4. 下载并解压`addons 0.19.0`.
+4. 下载并解压`addons 0.20.0`.
 
    ```shell
-   wget https://github.com/tensorflow/addons/archive/refs/tags/0.19.0.zip
-   unzip ./0.19.0.zip
-   cd addons-0.19.0
+   wget https://github.com/tensorflow/addons/archive/refs/tags/v0.20.0.zip
+   unzip ./v0.20.0.zip
+   cd addons-0.20.0
    ```
 
 5. 运行脚本构建.
@@ -59,7 +59,6 @@
 
 ## Tips&Refer
 
-1. `addons`需要和`tensorflow`的版本. 具体对应关系在[这里](https://github.com/tensorflow/addons/blob/a5cd76d341c594f464a5c9be8e572ed5bd3f3b8b/README.md?plain=1#L80).
+1. `addons`需要和`tensorflow`的版本对应. 具体对应关系在[这里](https://github.com/tensorflow/addons/blob/a5cd76d341c594f464a5c9be8e572ed5bd3f3b8b/README.md?plain=1#L80).
 2. 编译过程中请保证你的网络稳定, 编译需要使用网络.
-2. [本人添加Apple Silicon Python 3.10支持PR.](https://github.com/tensorflow/addons/pull/2718)
-
+3. [本人添加Apple Silicon Python 3.10支持PR.](https://github.com/tensorflow/addons/pull/2718)
