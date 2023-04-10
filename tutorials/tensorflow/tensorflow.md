@@ -14,7 +14,7 @@ Please use `Xcode 14.3` and `Apple clang version 14.0.3 (clang-1403.0.22.14.1)`.
 
     ```shell
     conda create -n tensorflow-macos python=3.10  # Python 3.8 and 3.9 are also supported here, and in theory, 3.11 should also be supported. However, extensive library support for 3.11 is incomplete and has not yet been tested.
-    conda acivate tensorflow-macos
+    conda activate tensorflow-macos
     ```
 
 2. Install TensorFlow dependencies.

@@ -14,7 +14,7 @@
 
     ```shell
     conda create -n tensorflow-macos python=3.10  # 这里Python版本也可以使用Python 3.8和3.9, 理论上也可以支持3.11但是大量库支持不完善暂未进行测试.
-    conda acivate tensorflow-macos
+    conda activate tensorflow-macos
     ```
 
 2. 安装`tensorflow`的依赖项.
