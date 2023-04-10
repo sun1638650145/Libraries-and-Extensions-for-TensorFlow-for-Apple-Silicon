@@ -10,4 +10,4 @@ This Repo will provide TensorFlow libraries and extended build tutorials that re
 
 ## Note ⚠️
 
-`Python 3.10` support has been provided since `tensorflow-macos 2.9.0` and `tensorflow-metal 0.5.0`, `tensorflow-text` does not currently support `Python 3.10`.
+`Python 3.10` support has been provided since `tensorflow-macos 2.9.0` and `tensorflow-metal 0.5.0`.
