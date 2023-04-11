@@ -1,24 +1,28 @@
 # Build TensorFlow Text from source
 
+## Attention ⚠️
+
+Please use `Xcode 14.3` and `Apple clang version 14.0.3 (clang-1403.0.22.14.1)`.
+
 ## Necessary conditions
 
-It is assumed here that you have the necessary Unix-Like knowledge, [`brew`](https://brew.sh) and [`conda`](https://github.com/conda-forge/miniforge) have been installed in your terminal, and the installation and use methods of `brew` and `conda` will not be repeated here; most importantly, this tutorial is completely based on Apple Silicon (such as M1, M1 Pro, M1 Max and M1 Ultra) build, so make sure your Mac is Apple Silicon.
+It is assumed here that you have the necessary Unix-Like knowledge, [`brew`](https://brew.sh) and [`conda`](https://github.com/conda-forge/miniforge) have been installed in your terminal, and the installation and use methods of `brew` and `conda` will not be repeated here; most importantly, this tutorial is completely based on Apple Silicon build, so make sure your Mac is Apple Silicon.
 
 ## Step by Step
 
 1. Create a new Env and install the dependencies provided by Apple.
 
    ```shell
-   conda create -n tensorflow-macos python=3.9 # This Python version can also use 3.8
+   conda create -n tensorflow-macos python=3.10 # This Python version can also use 3.8 and 3.9
    conda activate tensorflow-macos
-   conda install -c apple tensorflow-deps==2.9.0
+   conda install -c apple tensorflow-deps==2.10.0
    ````
 
 2. Install the `tensorflow-macos` and `tensorflow-metal` plugins.
 
    ```shell
-   pip install tensorflow-macos==2.9.0
-   pip install tensorflow-metal==0.5.0
+   pip install tensorflow-macos==2.10.0
+   pip install tensorflow-metal==0.6.0
    ````
 
 3. Install `bazel 5.1.1`.
@@ -26,17 +30,17 @@ It is assumed here that you have the necessary Unix-Like knowledge, [`brew`](htt
    ```shell
    wget https://raw.githubusercontent.com/Homebrew/homebrew-core/2940e900476b4452c8047c75dcbfc193c6f30341/Formula/bazel.rb
    brew install ./bazel.rb
-   bazel --version # Make sure the version is 5.1.x.
+   bazel --version # Make sure the version is 5.1.1.
    ````
 
    * Usually, the `bazel` installed by `brew` will be the latest version. The latest version often does not match the version required by `text`, which may cause many unexpected problems, so we install it by specifying the version manually.
 
-4. Download and extract `text 2.9.0`.
+4. Download and extract `text 2.10.0`.
 
    ```shell
-   wget https://github.com/tensorflow/text/archive/refs/tags/v2.9.0.zip
-   unzip ./v2.9.0.zip
-   cd text-2.9.0
+   wget https://github.com/tensorflow/text/archive/refs/tags/v2.10.0.zip
+   unzip ./v2.10.0.zip
+   cd text-2.10.0
    ````
 
 5. Modify some parameters of the source code to ensure correct build.
@@ -44,8 +48,22 @@ It is assumed here that you have the necessary Unix-Like knowledge, [`brew`](htt
    * `oss_scripts/configure.sh` to modify line 49:
 
      ```shell
-     pip install tensorflow-macos==2.9.0
+     pip install tensorflow-macos==2.10.0
      ````
+     
+   * (Optional, if you have not installed `bazel` through `brew`, please skip it) `oss_scripts/run_build.sh` modify line 18:
+
+     ```shell
+     tf_bazel_version='5.1.1-homebrew'
+     ```
+
+   * Comment out lines 27-29 of `oss_scripts/run_build.sh`:
+
+     ```shell
+     # if [[ $osname != "Darwin" ]] || [[ ! $(sysctl -n machdep.cpu.brand_string) =~ "Apple" ]]; then
+     #   source oss_scripts/prepare_tf_dep.sh
+     # fi
+     ```
 
 6. Run the script.
 
