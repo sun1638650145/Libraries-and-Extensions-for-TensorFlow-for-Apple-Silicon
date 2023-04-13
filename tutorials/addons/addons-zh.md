@@ -53,7 +53,7 @@
 
 6. 千万不要忘记安装`whl`文件.
 
-   ```python
+   ```shell
    pip install artifacts/*.whl
    ```
 

@@ -53,7 +53,7 @@ It is assumed here that you have the necessary Unix-Like knowledge, [`brew`](htt
 
 6. Please do not forget to install the `whl` file.
 
-   ```python
+   ```shell
    pip install artifacts/*.whl
    ```
 
@@ -61,4 +61,4 @@ It is assumed here that you have the necessary Unix-Like knowledge, [`brew`](htt
 
 1. `Addons` need to correspond with the version of `tensorflow`. The specific correspondence is [here](https://github.com/tensorflow/addons/blob/a5cd76d341c594f464a5c9be8e572ed5bd3f3b8b/README.md?plain=1#L80).
 2. Please ensure that your network is stable during the compilation process, and the compilation needs to use the network.
-3. [I add Python 3.10 support for r0.17 of Apple silicon.](https://github.com/tensorflow/addons/pull/2718)
+3. [I add Python 3.10 support for r0.17 of Apple Silicon.](https://github.com/tensorflow/addons/pull/2718)

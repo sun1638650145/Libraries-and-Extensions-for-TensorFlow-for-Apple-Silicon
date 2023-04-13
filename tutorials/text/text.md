@@ -1,10 +1,10 @@
 # Build TensorFlow Text from source
 
-## Attention ⚠️
+## Note ⚠️
 
 Please use `Xcode 14.3` and `Apple clang version 14.0.3 (clang-1403.0.22.14.1)`.
 
-## Necessary conditions
+## Prerequisites
 
 It is assumed here that you have the necessary Unix-Like knowledge, [`brew`](https://brew.sh) and [`conda`](https://github.com/conda-forge/miniforge) have been installed in your terminal, and the installation and use methods of `brew` and `conda` will not be repeated here; most importantly, this tutorial is completely based on Apple Silicon build, so make sure your Mac is Apple Silicon.
 
@@ -13,7 +13,7 @@ It is assumed here that you have the necessary Unix-Like knowledge, [`brew`](htt
 1. Create a new Env and install the dependencies provided by Apple.
 
    ```shell
-   conda create -n tensorflow-macos python=3.10 # This Python version can also use 3.8 and 3.9
+   conda create -n tensorflow-macos python=3.10 # Python 3.8 and 3.9 are also supported.
    conda activate tensorflow-macos
    conda install -c apple tensorflow-deps==2.10.0 # Currently Apple has not released tensorflow-deps 2.11 and 2.12, 2.10 is the latest version.
    ````
@@ -35,12 +35,12 @@ It is assumed here that you have the necessary Unix-Like knowledge, [`brew`](htt
 
    * Usually, the `bazel` installed by `brew` will be the latest version. The latest version often does not match the version required by `text`, which may cause many unexpected problems, so we install it by specifying the version manually.
 
-4. Download and extract `text 2.12.0`.
+4. Download and extract `text 2.12.1`.
 
    ```shell
-   wget https://github.com/tensorflow/text/archive/refs/tags/v2.12.0.zip
-   unzip ./v2.12.0.zip
-   cd text-2.12.0
+   wget https://github.com/tensorflow/text/archive/refs/tags/v2.12.1.zip
+   unzip ./v2.12.1.zip
+   cd text-2.12.1
    ````
 
 5. Modify some parameters of the source code to ensure correct build.
@@ -65,12 +65,12 @@ It is assumed here that you have the necessary Unix-Like knowledge, [`brew`](htt
 
 7. [Please do not forget to install the whl file.](https://github.com/sun1638650145/Libraries-and-Extensions-for-TensorFlow-for-Apple-Silicon/issues/2)
 
-   ```python
+   ```shell
    pip install ./*.whl
    ```
 
 ## Tips&Refer
 
-1. `Text` needs to correspond to a minor version of `tensorflow` (eg `tensorflow-macos==2.7.0` and `tensorflow-text==2.7.3`)
+1. `Text` needs to correspond to a minor version of `tensorflow` (e.g. `tensorflow-macos==2.7.0` and `tensorflow-text==2.7.3`)
 2. Please ensure that your network is stable during the compilation process, and the compilation needs to use the network.
 3. [I add a PR for Apple Silicon support.](https://github.com/tensorflow/text/pull/756)

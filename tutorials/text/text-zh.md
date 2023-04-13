@@ -35,12 +35,12 @@
 
    * 通常情况下`brew`安装的`bazel`会是最新版的, 最新版往往和`text`要求的版本不匹配, 这可能会出现很多意想不到的问题, 所以我们通过手动指定版本安装.
 
-4. 下载并解压`text 2.12.0`.
+4. 下载并解压`text 2.12.1`.
 
    ```shell
-   wget https://github.com/tensorflow/text/archive/refs/tags/v2.12.0.zip
-   unzip ./v2.12.0.zip
-   cd text-2.12.0
+   wget https://github.com/tensorflow/text/archive/refs/tags/v2.12.1.zip
+   unzip ./v2.12.1.zip
+   cd text-2.12.1
    ```
 
 5. 修改源码的一些参数以此确保能正确构建.
@@ -65,7 +65,7 @@
 
 7. [千万不要忘记安装whl文件.](https://github.com/sun1638650145/Libraries-and-Extensions-for-TensorFlow-for-Apple-Silicon/issues/2)
 
-   ```python
+   ```shell
    pip install ./*.whl
    ```
 
