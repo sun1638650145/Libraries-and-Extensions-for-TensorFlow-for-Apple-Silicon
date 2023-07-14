@@ -10,4 +10,5 @@
 
 ## 注意 ⚠️
 
-从`tensorflow-macos 2.9.0`和`tensorflow-metal 0.5.0`才开始提供了`Python 3.10`的支持.		
+* 从`tensorflow-macos 2.9.0`和`tensorflow-metal 0.5.0`才开始提供了`Python 3.10`的支持.	
+* 从`tensorflow 2.13.0`开始官方提供`Apple Silicon`的支持和`Python 3.11`的支持.	

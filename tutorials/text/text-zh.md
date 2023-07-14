@@ -13,16 +13,15 @@
 1. 创建新的环境并安装Apple提供的依赖项.
 
    ```shell
-   conda create -n tensorflow-macos python=3.10 # 这里Python版本也可以使用Python 3.8和3.9
+   conda create -n tensorflow-macos python=3.11 # 这里Python版本也可以使用Python 3.8, 3.9和3.10.
    conda activate tensorflow-macos
-   conda install -c apple tensorflow-deps==2.10.0  # 目前Apple没有发布tensorflow-deps 2.11和2.12, 2.10就是最新版.
    ```
-
-2. 安装`tensorFlow-macos`和`tensorflow-metal`插件.
+   
+2. 安装`tensorflow`和`tensorflow-metal`插件.
 
    ```shell
-   pip install tensorflow-macos==2.12.0
-   pip install tensorflow-metal==0.8.0
+   pip install tensorflow==2.13.0 # 从tensorflow 2.13开始官方支持Apple silicon.
+   pip install tensorflow-metal==1.0.1
    ```
 
 3. 安装`bazel 5.3.0`.
@@ -35,12 +34,12 @@
 
    * 通常情况下`brew`安装的`bazel`会是最新版的, 最新版往往和`text`要求的版本不匹配, 这可能会出现很多意想不到的问题, 所以我们通过手动指定版本安装.
 
-4. 下载并解压`text 2.12.1`.
+4. 下载并解压`text 2.13.0`.
 
    ```shell
-   wget https://github.com/tensorflow/text/archive/refs/tags/v2.12.1.zip
-   unzip ./v2.12.1.zip
-   cd text-2.12.1
+   wget https://github.com/tensorflow/text/archive/refs/tags/v2.13.0.zip
+   unzip ./v2.13.0.zip
+   cd text-2.13.0
    ```
 
 5. 修改源码的一些参数以此确保能正确构建.
@@ -48,10 +47,10 @@
    * `oss_scripts/configure.sh`修改第49行为
 
      ```shell
-     pip install tensorflow-macos==2.12.0
+     pip install tensorflow-macos==2.13.0
      ```
 
-   * (可选, 如果你没有通过`brew`安装`bazel`请直接跳过)`oss_scripts/run_build.sh`修改第19行为
+   * (可选, 如果你没有通过`brew`安装`bazel`请直接跳过)`oss_scripts/run_build.sh`修改第18行为
 
        ```shell
        tf_bazel_version='5.3.0-homebrew'
@@ -74,4 +73,3 @@
 1. `text`需要和`tensorflow`的次要版本对应(比如`tensorflow-macos==2.7.0`和`tensorflow-text==2.7.3`)
 2. 编译过程中请保证你的网络稳定, 编译需要使用网络.
 3. [本人添加Apple Silicon支持的PR.](https://github.com/tensorflow/text/pull/756)
-
