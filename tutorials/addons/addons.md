@@ -13,16 +13,15 @@ It is assumed here that you have the necessary Unix-Like knowledge, [`brew`](htt
 1. Create a new Env and install the dependencies provided by Apple.
 
    ```shell
-   conda create -n tensorflow-macos python=3.10 # Python 3.8 and 3.9 are also supported here.
+   conda create -n tensorflow-macos python=3.11 # Python 3.8, 3.9 and 3.10 are also supported here.
    conda activate tensorflow-macos
-   conda install -c apple tensorflow-deps==2.10.0 # Currently Apple has not released tensorflow-deps 2.11 and 2.12, 2.10 is the latest version.
    ````
-
-2. Install the `tensorflow-macos` and `tensorflow-metal` plugins.
+   
+2. Install the `tensorflow` and `tensorflow-metal` plugins.
 
    ```shell
-   pip install tensorflow-macos==2.12.0
-   pip install tensorflow-metal==0.8.0
+   pip install tensorflow==2.13.0 # Starting from tensorflow 2.13, official support for Apple silicon is available.
+   pip install tensorflow-metal==1.0.1
    ````
 
 3. Install `bazel 5.3.0`.
@@ -35,12 +34,12 @@ It is assumed here that you have the necessary Unix-Like knowledge, [`brew`](htt
 
    * Normally, the version of `bazel` installed via `brew` is the latest one, which may not match the version required by the `addons`. This can lead to unexpected issues, so we need to manually specify the version for installation.
 
-4. Download and extract `addons 0.20.0`.
+4. Download and extract `addons 0.21.0`.
 
    ```shell
-   wget https://github.com/tensorflow/addons/archive/refs/tags/v0.20.0.zip
-   unzip ./v0.20.0.zip
-   cd addons-0.20.0
+   wget https://github.com/tensorflow/addons/archive/refs/tags/v0.21.0.zip
+   unzip ./v0.21.0.zip
+   cd addons-0.21.0
    ````
 
 5. Run the script.
