@@ -13,7 +13,7 @@
 1. 创建新的环境.
 
     ```shell
-    conda create -n tensorflow-macos python=3.10  # 这里Python版本也可以使用Python 3.8和3.9, 理论上也可以支持3.11但是大量库支持不完善暂未进行测试.
+    conda create -n tensorflow-macos python=3.11  # 这里Python版本也可以使用Python 3.8, 3.9和3.10.
     conda activate tensorflow-macos
     ```
 
@@ -34,33 +34,45 @@
     
     * 通常情况下`brew`安装的`bazel`会是最新版的, 最新版往往和要求的版本不匹配, 这可能会出现很多意想不到的问题, 所以我们通过手动指定版本安装.
 
-4. 下载并解压`tensorflow 2.12.0`.
+4. 安装`coreutils`.
 
     ```shell
-    wget https://github.com/tensorflow/tensorflow/archive/refs/tags/v2.12.0.zip
-    unzip v2.12.0.zip
-    cd tensorflow-2.12.0
+    brew install coreutils
+    echo 'export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"' >> .zshrc
+    source .zshrc
+    realpath --help # 确保指向GNU版本的realpath.
+    conda activate tensorflow-macos
     ```
 
-5. 配置build.
+    * 这里可能会出现一个由`macOS`的`realpath`引起的编译失败, 所以我们使用`GNU`的`realpath`解决它.
+
+5. 下载并解压`tensorflow 2.13.0`.
+
+    ```shell
+    wget https://github.com/tensorflow/tensorflow/archive/refs/tags/v2.13.0.zip
+    unzip v2.13.0.zip
+    cd tensorflow-2.13.0
+    ```
+
+6. 配置build.
 
     ```shell
     ./configure  # 请全部使用默认选项.
     ```
 
-6. 构建`tensorflow`(在作者本人的`M1 MacBook Pro 16GB`大概需要`1:45`小时).
+7. 构建`tensorflow`(在作者本人的`M1 MacBook Pro 16GB`大概需要`1:45`小时).
 
     ```shell
     bazel build //tensorflow/tools/pip_package:build_pip_package           
     ```
 
-7. 在当前目录下, 生成`whl`文件.
+8. 在当前目录下, 生成`whl`文件.
 
     ```shell
     ./bazel-bin/tensorflow/tools/pip_package/build_pip_package ./
     ```
 
-8. 安装`whl`文件.
+9. 安装`whl`文件.
 
     ```shell
     pip install ./*.whl
