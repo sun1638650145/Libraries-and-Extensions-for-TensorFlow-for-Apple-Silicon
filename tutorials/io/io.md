@@ -53,6 +53,7 @@ It is assumed here that you have the necessary Unix-Like knowledge, [`brew`](htt
 
    ```shell
    python setup.py bdist_wheel --data bazel-bin
+   rm -rf build
    python setup.py bdist_wheel --data bazel-bin --project tensorflow-io-gcs-filesystem
    ```
 

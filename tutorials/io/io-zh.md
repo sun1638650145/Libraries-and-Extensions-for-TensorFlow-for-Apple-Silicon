@@ -53,6 +53,7 @@
 
    ```shell
    python setup.py bdist_wheel --data bazel-bin
+   rm -rf build
    python setup.py bdist_wheel --data bazel-bin --project tensorflow-io-gcs-filesystem
    ```
 
