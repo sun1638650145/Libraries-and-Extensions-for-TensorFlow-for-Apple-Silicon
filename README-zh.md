@@ -5,6 +5,7 @@
 ## 目前提供的教程 👉
 
 * [addons](https://github.com/tensorflow/addons)
+* [io](https://github.com/tensorflow/io)
 * [text](https://github.com/tensorflow/text)
 * 未完待续
 

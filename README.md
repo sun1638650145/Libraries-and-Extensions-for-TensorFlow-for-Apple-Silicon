@@ -5,6 +5,7 @@ This Repo will provide TensorFlow libraries and extended build tutorials that re
 ## Currently available tutorials 👉🏻
 
 * [addons](https://github.com/tensorflow/addons)
+* [io](https://github.com/tensorflow/io)
 * [text](https://github.com/tensorflow/text)
 * To be continued...
 
