@@ -32,7 +32,7 @@ It is assumed here that you have the necessary Unix-Like knowledge, [`brew`](htt
    bazel --version # Make sure the version is 5.1.1.
    ````
 
-   * Normally, the version of `bazel` installed via `brew` is the latest one, which may not match the version required by the `addons`. This can lead to unexpected issues, so we need to manually specify the version for installation.
+   * Normally, the version of `bazel` installed via `brew` is the latest one, which may not match the version required by the `io`. This can lead to unexpected issues, so we need to manually specify the version for installation.
 
 4. Download and extract `io 0.34.0`.
 
