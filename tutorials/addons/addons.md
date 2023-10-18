@@ -2,7 +2,7 @@
 
 ## Note ⚠️
 
-`TensorFlow Addons` already provides Apple Silicon precompiled `whl` files for all Python versions, which you can download directly from this [page](https://pypi.org/project/tensorflow-addons/).
+`TensorFlow Addons` already provides Apple silicon precompiled `whl` files for all Python versions, which you can download directly from this [page](https://pypi.org/project/tensorflow-addons/).
 
 ## Prerequisites
 
@@ -13,33 +13,33 @@ It is assumed here that you have the necessary Unix-Like knowledge, [`brew`](htt
 1. Create a new Env and install the dependencies provided by Apple.
 
    ```shell
-   conda create -n tensorflow-macos python=3.11 # Python 3.8, 3.9 and 3.10 are also supported here.
+   conda create -n tensorflow-macos python=3.11 # Python 3.9 and 3.10 are also supported.
    conda activate tensorflow-macos
    ````
    
 2. Install the `tensorflow` and `tensorflow-metal` plugins.
 
    ```shell
-   pip install tensorflow==2.13.0 # Starting from tensorflow 2.13, official support for Apple silicon is available.
-   pip install tensorflow-metal==1.0.1
+   pip install tensorflow==2.14.0
+   pip install tensorflow-metal==1.1.0
    ````
 
-3. Install `bazel 5.3.0`.
+3. Install `bazel 6.1.0`.
 
    ```shell
-   wget https://raw.githubusercontent.com/Homebrew/homebrew-core/59dff37de3c670a77c1e9f39b8a4b0f8884a391b/Formula/bazel.rb
+   wget https://raw.githubusercontent.com/Homebrew/homebrew-core/a9b3083e23806aebe61f7c39d393734a6949eaa5/Formula/bazel.rb
    brew install ./bazel.rb
-   bazel --version # Make sure the version is 5.3.0.
+   bazel --version # Make sure the version is 6.1.0.
    ````
 
    * Normally, the version of `bazel` installed via `brew` is the latest one, which may not match the version required by the `addons`. This can lead to unexpected issues, so we need to manually specify the version for installation.
 
-4. Download and extract `addons 0.21.0`.
+4. Download and extract `addons 0.22.0`.
 
    ```shell
-   wget https://github.com/tensorflow/addons/archive/refs/tags/v0.21.0.zip
-   unzip ./v0.21.0.zip
-   cd addons-0.21.0
+   wget https://github.com/tensorflow/addons/archive/refs/tags/v0.22.0.zip
+   unzip ./v0.22.0.zip
+   cd addons-0.22.0
    ````
 
 5. Run the script.
