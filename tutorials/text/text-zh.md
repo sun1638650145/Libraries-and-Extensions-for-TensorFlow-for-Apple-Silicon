@@ -2,7 +2,7 @@
 
 ## 注意 ⚠️
 
-请使用`Xcode 14.3`和`Apple clang version 14.0.3 (clang-1403.0.22.14.1)`.
+请使用`Xcode 14.3`和`Apple clang version 14.0.3 (clang-1403.0.22.14.1)`及以上版本.
 
 ## 必要条件
 
@@ -20,7 +20,7 @@
 2. 安装`tensorflow`和`tensorflow-metal`插件.
 
    ```shell
-   pip install tensorflow==2.14.0
+   pip install tensorflow==2.15.0
    pip install tensorflow-metal==1.1.0
    ```
 
@@ -34,12 +34,12 @@
 
    * 通常情况下`brew`安装的`bazel`会是最新版的, 最新版往往和`text`要求的版本不匹配, 这可能会出现很多意想不到的问题, 所以我们通过手动指定版本安装.
 
-4. 下载并解压`text 2.14.0`.
+4. 下载并解压`text 2.15.0`.
 
    ```shell
-   wget https://github.com/tensorflow/text/archive/refs/tags/v2.14.0.zip
-   unzip ./v2.14.0.zip
-   cd text-2.14.0
+   wget https://github.com/tensorflow/text/archive/refs/tags/v2.15.0.zip
+   unzip ./v2.15.0.zip
+   cd text-2.15.0
    ```
 
 5. 修改源码的一些参数以此确保能正确构建.
@@ -47,7 +47,7 @@
    * `oss_scripts/configure.sh`修改第49行为
 
      ```shell
-     pip install tensorflow-macos==2.14.0
+     pip install tensorflow-macos==2.15.0
      ```
 
    * (可选, 如果你没有通过`brew`安装`bazel`请直接跳过)`oss_scripts/run_build.sh`修改第18行为

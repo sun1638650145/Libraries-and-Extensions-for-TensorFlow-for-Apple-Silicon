@@ -2,7 +2,7 @@
 
 ## Note ⚠️
 
-Please use `Xcode 14.3` and `Apple clang version 14.0.3 (clang-1403.0.22.14.1)`.
+Please use `Xcode 14.3` and `Apple clang version 14.0.3 (clang-1403.0.22.14.1)` or later versions is required.
 
 ## Prerequisites
 
@@ -20,7 +20,7 @@ It is assumed here that you have the necessary Unix-Like knowledge, [`brew`](htt
 2. Install the `tensorflow` and `tensorflow-metal` plugins.
 
    ```shell
-   pip install tensorflow==2.14.0
+   pip install tensorflow==2.15.0
    pip install tensorflow-metal==1.1.0
    ````
 
@@ -34,12 +34,12 @@ It is assumed here that you have the necessary Unix-Like knowledge, [`brew`](htt
 
    * Usually, the `bazel` installed by `brew` will be the latest version. The latest version often does not match the version required by `text`, which may cause many unexpected problems, so we install it by specifying the version manually.
 
-4. Download and extract `text 2.14.0`.
+4. Download and extract `text 2.15.0`.
 
    ```shell
-   wget https://github.com/tensorflow/text/archive/refs/tags/v2.14.0.zip
-   unzip ./v2.14.0.zip
-   cd text-2.14.0
+   wget https://github.com/tensorflow/text/archive/refs/tags/v2.15.0.zip
+   unzip ./v2.15.0.zip
+   cd text-2.15.0
    ````
 
 5. Modify some parameters of the source code to ensure correct build.
@@ -47,7 +47,7 @@ It is assumed here that you have the necessary Unix-Like knowledge, [`brew`](htt
    * `oss_scripts/configure.sh` to modify line 49:
 
      ```shell
-     pip install tensorflow-macos==2.14.0
+     pip install tensorflow-macos==2.15.0
      ````
    
    * (Optional, if you have not installed `bazel` through `brew`, please skip it) `oss_scripts/run_build.sh` modify line 18:
