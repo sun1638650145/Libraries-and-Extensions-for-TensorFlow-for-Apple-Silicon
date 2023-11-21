@@ -46,15 +46,15 @@
 
     * 这里可能会出现一个由`macOS`的`realpath`引起的编译失败, 所以我们使用`GNU`的`realpath`解决它.
 
-5. 下载并解压`tensorflow 2.14.0`.
+5. 下载并解压`tensorflow 2.15.0`.
 
     ```shell
-    wget https://github.com/tensorflow/tensorflow/archive/refs/tags/v2.14.0.zip
-    unzip v2.14.0.zip
-    cd tensorflow-2.14.0
+    wget https://github.com/tensorflow/tensorflow/archive/refs/tags/v2.15.0.zip
+    unzip v2.15.0.zip
+    cd tensorflow-2.15.0
     ```
 
-6. 在`tensorflow/tensorflow.bzl`第2393行中添加额外的链接器参数`-ld_classic`.
+6. 在`tensorflow/tensorflow.bzl`第2414行中添加额外的链接器参数`-ld_classic`.
 
     ```bazel
     clean_dep("//tensorflow:macos"): [

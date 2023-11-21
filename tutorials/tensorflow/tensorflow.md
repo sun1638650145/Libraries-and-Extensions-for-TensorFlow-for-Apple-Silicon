@@ -46,15 +46,15 @@ Please use `Xcode 14.3` and `Apple clang version 14.0.3 (clang-1403.0.22.14.1)` 
 
     * There might be a compilation failure caused by macOS's `realpath`, so we're using the GNU version of `realpath` to resolve it.
 
-5. Download and extract `tensorflow 2.14.0`.
+5. Download and extract `tensorflow 2.15.0`.
 
     ```shell
-    wget https://github.com/tensorflow/tensorflow/archive/refs/tags/v2.14.0.zip
-    unzip v2.14.0.zip
-    cd tensorflow-2.14.0
+    wget https://github.com/tensorflow/tensorflow/archive/refs/tags/v2.15.0.zip
+    unzip v2.15.0.zip
+    cd tensorflow-2.15.0
     ```
 
-6. Add additional linker flag `-ld_classic` at line 2393 in `tensorflow/tensorflow.bzl`.
+6. Add additional linker flag `-ld_classic` at line 2414 in `tensorflow/tensorflow.bzl`.
 
     ```bazel
     clean_dep("//tensorflow:macos"): [
