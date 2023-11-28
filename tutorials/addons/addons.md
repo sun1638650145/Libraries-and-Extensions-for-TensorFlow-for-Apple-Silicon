@@ -20,7 +20,7 @@ It is assumed here that you have the necessary Unix-Like knowledge, [`brew`](htt
 2. Install the `tensorflow` and `tensorflow-metal` plugins.
 
    ```shell
-   pip install tensorflow==2.14.0
+   pip install tensorflow==2.15.0
    pip install tensorflow-metal==1.1.0
    ````
 
@@ -34,12 +34,12 @@ It is assumed here that you have the necessary Unix-Like knowledge, [`brew`](htt
 
    * Normally, the version of `bazel` installed via `brew` is the latest one, which may not match the version required by the `addons`. This can lead to unexpected issues, so we need to manually specify the version for installation.
 
-4. Download and extract `addons 0.22.0`.
+4. Download and extract `addons 0.23.0`.
 
    ```shell
-   wget https://github.com/tensorflow/addons/archive/refs/tags/v0.22.0.zip
-   unzip ./v0.22.0.zip
-   cd addons-0.22.0
+   wget https://github.com/tensorflow/addons/archive/refs/tags/v0.23.0.zip
+   unzip ./v0.23.0.zip
+   cd addons-0.23.0
    ````
 
 5. Run the script.
