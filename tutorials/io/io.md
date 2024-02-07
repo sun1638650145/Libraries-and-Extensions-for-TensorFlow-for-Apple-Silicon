@@ -16,7 +16,7 @@ It is assumed here that you have the necessary Unix-Like knowledge, [`brew`](htt
 2. Install the `tensorflow` and `tensorflow-metal` plugins.
 
    ```shell
-   pip install tensorflow==2.14.0
+   pip install tensorflow==2.15.0
    pip install tensorflow-metal==1.1.0
    ````
 
@@ -30,12 +30,12 @@ It is assumed here that you have the necessary Unix-Like knowledge, [`brew`](htt
 
    * Normally, the version of `bazel` installed via `brew` is the latest one, which may not match the version required by the `io`. This can lead to unexpected issues, so we need to manually specify the version for installation.
 
-4. Download and extract `io 0.35.0`.
+4. Download and extract `io 0.36.0`.
 
    ```shell
-   wget https://github.com/tensorflow/io/archive/refs/tags/v0.35.0.zip
-   unzip ./v0.35.0.zip
-   cd io-0.35.0
+   wget https://github.com/tensorflow/io/archive/refs/tags/v0.36.0.zip
+   unzip ./v0.36.0.zip
+   cd io-0.36.0
    ````
 
 5. Set the environment variable `TF_PYTHON_VERSION`.
@@ -44,29 +44,24 @@ It is assumed here that you have the necessary Unix-Like knowledge, [`brew`](htt
    export TF_PYTHON_VERSION=3.11 # Python 3.9 and 3.10 are also supported.
    ```
 
-6. Modify lines 124 and 125 in `tools/build/configure.py`:
-
-   ```python
-   bazel_rc.write('build:macos --copt="--target=arm64-apple-macosx12.1"\n')
-   bazel_rc.write('build:macos --linkopt="--target=arm64-apple-macosx12.1"\n')
-   ```
-
-7. Run the script.
+6. Run the script.
 
    ```shell
-   ./configure.sh
-   bazel build -s --verbose_failures $BAZEL_OPTIMIZATION //tensorflow_io/... //tensorflow_io_gcs_filesystem/...
+   python tools/build/configure.py
+   bazel build \
+     ${BAZEL_OPTIMIZATION} \
+     -- //tensorflow_io_gcs_filesystem/... //tensorflow_io:python/ops/libtensorflow_io.so //tensorflow_io:python/ops/libtensorflow_io_plugins.so
    ````
 
-8. Generate `whl` files for `tensorflow-io` and `tensorflow-io-gcs-filesystem`.
+7. Generate `whl` files for `tensorflow-io` and `tensorflow-io-gcs-filesystem`.
 
    ```shell
-   python setup.py bdist_wheel --data bazel-bin
+   python setup.py --data bazel-bin -q bdist_wheel --plat-name macosx_12_0_arm64
    rm -rf build
-   python setup.py bdist_wheel --data bazel-bin --project tensorflow-io-gcs-filesystem
+   python setup.py --project tensorflow-io-gcs-filesystem --data bazel-bin -q bdist_wheel --plat-name macosx_12_0_arm64
    ```
 
-9. Please do not forget to install the `whl` file, and you need to install `tensorflow-io-gcs-filesystem` first and then install `tensorflow-io`.
+8. Please do not forget to install the `whl` file, and you need to install `tensorflow-io-gcs-filesystem` first and then install `tensorflow-io`.
 
    ```shell
    pip install dist/tensorflow_io_gcs_filesystem-*.whl

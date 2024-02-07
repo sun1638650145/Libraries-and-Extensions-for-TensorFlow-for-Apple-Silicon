@@ -16,7 +16,7 @@
 2. 安装`tensorflow`和`tensorflow-metal`插件.
 
    ```shell
-   pip install tensorflow==2.14.0
+   pip install tensorflow==2.15.0
    pip install tensorflow-metal==1.1.0
    ```
 
@@ -30,12 +30,12 @@
 
    * 通常情况下`brew`安装的`bazel`会是最新版的, 最新版往往和`io`要求的版本不匹配, 这可能会出现很多意想不到的问题, 所以我们通过手动指定版本安装.
 
-4. 下载并解压`io 0.35.0`.
+4. 下载并解压`io 0.36.0`.
 
    ```shell
-   wget https://github.com/tensorflow/io/archive/refs/tags/v0.35.0.zip
-   unzip ./v0.35.0.zip
-   cd io-0.35.0
+   wget https://github.com/tensorflow/io/archive/refs/tags/v0.36.0.zip
+   unzip ./v0.36.0.zip
+   cd io-0.36.0
    ```
 
 5. 设置环境变量`TF_PYTHON_VERSION`.
@@ -44,29 +44,24 @@
    export TF_PYTHON_VERSION=3.11 # 这里Python版本也可以使用Python 3.9或3.10.
    ```
 
-6. 修改`tools/build/configure.py`的第124和125行为:
-
-   ```python
-   bazel_rc.write('build:macos --copt="--target=arm64-apple-macosx12.1"\n')
-   bazel_rc.write('build:macos --linkopt="--target=arm64-apple-macosx12.1"\n')
-   ```
-
-7. 运行脚本构建.
+6. 运行脚本构建.
 
    ```shell
-   ./configure.sh
-   bazel build -s --verbose_failures $BAZEL_OPTIMIZATION //tensorflow_io/... //tensorflow_io_gcs_filesystem/...
+   python tools/build/configure.py
+   bazel build \
+     ${BAZEL_OPTIMIZATION} \
+     -- //tensorflow_io_gcs_filesystem/... //tensorflow_io:python/ops/libtensorflow_io.so //tensorflow_io:python/ops/libtensorflow_io_plugins.so
    ```
 
-8. 生成`tensorflow-io`和`tensorflow-io-gcs-filesystem`的`whl`文件.
+7. 生成`tensorflow-io`和`tensorflow-io-gcs-filesystem`的`whl`文件.
 
    ```shell
-   python setup.py bdist_wheel --data bazel-bin
+   python setup.py --data bazel-bin -q bdist_wheel --plat-name macosx_12_0_arm64
    rm -rf build
-   python setup.py bdist_wheel --data bazel-bin --project tensorflow-io-gcs-filesystem
+   python setup.py --project tensorflow-io-gcs-filesystem --data bazel-bin -q bdist_wheel --plat-name macosx_12_0_arm64
    ```
 
-9. 千万不要忘记安装`whl`文件, 需要先安装`tensorflow-io-gcs-filesystem`然后再安装`tensorflow-io`.
+8. 千万不要忘记安装`whl`文件, 需要先安装`tensorflow-io-gcs-filesystem`然后再安装`tensorflow-io`.
 
    ```shell
    pip install dist/tensorflow_io_gcs_filesystem-*.whl
