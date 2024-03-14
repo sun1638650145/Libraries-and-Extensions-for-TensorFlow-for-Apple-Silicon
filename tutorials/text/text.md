@@ -52,7 +52,7 @@ It is assumed here that you have the necessary Unix-Like knowledge, [`brew`](htt
    
      ```python
      install_requires=[
-     	(
+         (
              'tensorflow>=2.16.1, <2.17',
          ),
      ],

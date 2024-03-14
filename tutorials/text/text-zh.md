@@ -52,7 +52,7 @@
 
      ```python
      install_requires=[
-     	(
+         (
              'tensorflow>=2.16.1, <2.17',
          ),
      ],
