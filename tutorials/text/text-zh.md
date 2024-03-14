@@ -13,33 +13,31 @@
 1. 创建新的环境并安装Apple提供的依赖项.
 
    ```shell
-   conda create -n tensorflow-macos python=3.11 # 这里Python版本也可以使用Python 3.9或3.10.
+   conda create -n tensorflow-macos python=3.12 # 这里Python版本也可以使用Python 3.9, 3.10和3.11.
    conda activate tensorflow-macos
    ```
    
-2. 安装`tensorflow`和`tensorflow-metal`插件.
+2. 安装`tensorflow`.
 
    ```shell
-   pip install tensorflow==2.15.0
-   pip install tensorflow-metal==1.1.0
+   pip install tensorflow==2.16.1
    ```
 
-3. 安装`bazel 6.1.0`.
+3. 安装`bazel 6.5.0`.
 
    ```shell
-   wget https://raw.githubusercontent.com/Homebrew/homebrew-core/a9b3083e23806aebe61f7c39d393734a6949eaa5/Formula/bazel.rb
-   brew install ./bazel.rb
-   bazel --version # 确保版本是6.1.0即可.
+   wget https://github.com/bazelbuild/bazel/releases/download/6.5.0/bazel-6.5.0-darwin-arm64 -O bazel
+   chmod +x bazel
+   sudo mv bazel /usr/local/bin/
+   bazel --version # 确保版本是6.5.0即可.
    ```
 
-   * 通常情况下`brew`安装的`bazel`会是最新版的, 最新版往往和`text`要求的版本不匹配, 这可能会出现很多意想不到的问题, 所以我们通过手动指定版本安装.
-
-4. 下载并解压`text 2.15.0`.
+4. 下载并解压`text 2.16.1`.
 
    ```shell
-   wget https://github.com/tensorflow/text/archive/refs/tags/v2.15.0.zip
-   unzip ./v2.15.0.zip
-   cd text-2.15.0
+   wget https://github.com/tensorflow/text/archive/refs/tags/v2.16.1.zip
+   unzip ./v2.16.1.zip
+   cd text-2.16.1
    ```
 
 5. 修改源码的一些参数以此确保能正确构建.
@@ -47,14 +45,18 @@
    * `oss_scripts/configure.sh`修改第49行为
 
      ```shell
-     pip install tensorflow-macos==2.15.0
+     pip install tensorflow==2.16.1
      ```
 
-   * (可选, 如果你没有通过`brew`安装`bazel`请直接跳过)`oss_scripts/run_build.sh`修改第18行为
+   * `oss_scripts/pip_package/setup.py`修改第75行为
 
-       ```shell
-       tf_bazel_version='6.1.0-homebrew'
-       ```
+     ```python
+     install_requires=[
+     	(
+             'tensorflow>=2.16.1, <2.17',
+         ),
+     ],
+     ```
 
 6. 运行脚本构建.
 

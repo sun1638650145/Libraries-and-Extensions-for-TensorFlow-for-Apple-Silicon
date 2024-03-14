@@ -13,33 +13,31 @@ It is assumed here that you have the necessary Unix-Like knowledge, [`brew`](htt
 1. Create a new Env and install the dependencies provided by Apple.
 
    ```shell
-   conda create -n tensorflow-macos python=3.11 # Python 3.9 and 3.10 are also supported.
+   conda create -n tensorflow-macos python=3.12 # Python 3.9, 3.10 and 3.11 are also supported.
    conda activate tensorflow-macos
    ````
    
-2. Install the `tensorflow` and `tensorflow-metal` plugins.
+2. Install the `tensorflow`.
 
    ```shell
-   pip install tensorflow==2.15.0
-   pip install tensorflow-metal==1.1.0
+   pip install tensorflow==2.16.1
    ````
 
-3. Install `bazel 6.1.0`.
+3. Install `bazel 6.5.0`.
 
    ```shell
-   wget https://raw.githubusercontent.com/Homebrew/homebrew-core/a9b3083e23806aebe61f7c39d393734a6949eaa5/Formula/bazel.rb
-   brew install ./bazel.rb
-   bazel --version # Make sure the version is 6.1.0.
+   wget https://github.com/bazelbuild/bazel/releases/download/6.5.0/bazel-6.5.0-darwin-arm64 -O bazel
+   chmod +x bazel
+   sudo mv bazel /usr/local/bin/
+   bazel --version # Make sure the version is 6.5.0.
    ````
 
-   * Usually, the `bazel` installed by `brew` will be the latest version. The latest version often does not match the version required by `text`, which may cause many unexpected problems, so we install it by specifying the version manually.
-
-4. Download and extract `text 2.15.0`.
+4. Download and extract `text 2.16.1`.
 
    ```shell
-   wget https://github.com/tensorflow/text/archive/refs/tags/v2.15.0.zip
-   unzip ./v2.15.0.zip
-   cd text-2.15.0
+   wget https://github.com/tensorflow/text/archive/refs/tags/v2.16.1.zip
+   unzip ./v2.16.1.zip
+   cd text-2.16.1
    ````
 
 5. Modify some parameters of the source code to ensure correct build.
@@ -47,14 +45,18 @@ It is assumed here that you have the necessary Unix-Like knowledge, [`brew`](htt
    * `oss_scripts/configure.sh` to modify line 49:
 
      ```shell
-     pip install tensorflow-macos==2.15.0
+     pip install tensorflow==2.16.1
      ````
    
-   * (Optional, if you have not installed `bazel` through `brew`, please skip it) `oss_scripts/run_build.sh` modify line 18:
+   * `oss_scripts/pip_package/setup.py` to modify line 75:
    
-       ```shell
-       tf_bazel_version='6.1.0-homebrew'
-       ```
+     ```python
+     install_requires=[
+     	(
+             'tensorflow>=2.16.1, <2.17',
+         ),
+     ],
+     ```
    
 6. Run the script.
 
