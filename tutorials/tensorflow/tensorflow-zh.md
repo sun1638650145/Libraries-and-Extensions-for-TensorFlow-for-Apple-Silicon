@@ -22,12 +22,12 @@
     bazel --version # 确保版本是6.5.0即可.
     ```
 
-3. 下载并解压`tensorflow 2.16.1`.
+3. 下载并解压`tensorflow 2.17.0`.
 
     ```shell
-    wget https://github.com/tensorflow/tensorflow/archive/refs/tags/v2.16.1.zip
-    unzip v2.16.1.zip
-    cd tensorflow-2.16.1
+    wget https://github.com/tensorflow/tensorflow/archive/refs/tags/v2.17.0.zip
+    unzip v2.17.0.zip
+    cd tensorflow-2.17.0
     ```
 
 4. 设置环境变量`TF_PYTHON_VERSION`.
@@ -45,19 +45,13 @@
 6. 构建`tensorflow`(在作者本人的`M1 MacBook Pro 16GB`大概需要`70`分钟).
 
     ```shell
-    bazel build //tensorflow/tools/pip_package:build_pip_package
+    bazel build //tensorflow/tools/pip_package:wheel
     ```
 
-7. 在当前目录下, 生成`whl`文件.
-
-    ```shell
-    ./bazel-bin/tensorflow/tools/pip_package/build_pip_package ./
-    ```
-
-8. 安装`whl`文件.
+7. 安装`whl`文件.
 
      ```shell
-     pip install ./*.whl
+     pip install ./bazel-bin/tensorflow/tools/pip_package/wheel_house/*.whl
      ```
 
 ## Tips

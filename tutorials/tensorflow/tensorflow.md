@@ -22,12 +22,12 @@ Please use `Xcode 15.3` and `Apple clang version 15.0.0 (clang-1500.3.9.4)` or l
     bazel --version # Make sure the version is 6.5.0.
     ```
 
-3. Download and extract `tensorflow 2.16.1`.
+3. Download and extract `tensorflow 2.17.0`.
 
     ```shell
-    wget https://github.com/tensorflow/tensorflow/archive/refs/tags/v2.16.1.zip
-    unzip v2.16.1.zip
-    cd tensorflow-2.16.1
+    wget https://github.com/tensorflow/tensorflow/archive/refs/tags/v2.17.0.zip
+    unzip v2.17.0.zip
+    cd tensorflow-2.17.0
     ```
 
 4. Set the environment variable `TF_PYTHON_VERSION`.
@@ -45,20 +45,14 @@ Please use `Xcode 15.3` and `Apple clang version 15.0.0 (clang-1500.3.9.4)` or l
 6. Build `tensorflow` (which takes approximately `70` minutes on the author's M1 MacBook Pro `16`GB).
 
     ```shell
-    bazel build //tensorflow/tools/pip_package:build_pip_package
+    bazel build //tensorflow/tools/pip_package:wheel
     ```
 
-7. In the current directory, generate the `whl` file.
+7. Install the `whl` file.
 
     ```shell
-    ./bazel-bin/tensorflow/tools/pip_package/build_pip_package ./
+    pip install ./bazel-bin/tensorflow/tools/pip_package/wheel_house/*.whl
     ```
-
-8. Install the `whl` file.
-
-     ```shell
-     pip install ./*.whl
-     ```
 
 ## Tips
 
