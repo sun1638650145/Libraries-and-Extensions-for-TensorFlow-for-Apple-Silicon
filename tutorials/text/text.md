@@ -2,7 +2,7 @@
 
 ## Note ⚠️
 
-Please use `Xcode 14.3` and `Apple clang version 14.0.3 (clang-1403.0.22.14.1)` or later versions is required.
+`TensorFlow Text` already provides pre-compiled `whl` files for Apple silicon for Python `3.9-3.11`, which you can download directly from this [page](https://pypi.org/project/tensorflow-text/). For support regarding `Python 3.12`, please follow this [issue](https://github.com/tensorflow/text/issues/1297).
 
 ## Prerequisites
 
@@ -13,14 +13,14 @@ It is assumed here that you have the necessary Unix-Like knowledge, [`brew`](htt
 1. Create a new Env and install the dependencies provided by Apple.
 
    ```shell
-   conda create -n tensorflow-macos python=3.12 # Python 3.9, 3.10 and 3.11 are also supported.
+   conda create -n tensorflow-macos python=3.11 # Python 3.9 and 3.10 are also supported.
    conda activate tensorflow-macos
    ````
    
 2. Install the `tensorflow`.
 
    ```shell
-   pip install tensorflow==2.16.1
+   pip install tensorflow==2.17.0
    ````
 
 3. Install `bazel 6.5.0`.
@@ -32,39 +32,21 @@ It is assumed here that you have the necessary Unix-Like knowledge, [`brew`](htt
    bazel --version # Make sure the version is 6.5.0.
    ````
 
-4. Download and extract `text 2.16.1`.
+4. Download and extract `text 2.17.0`.
 
    ```shell
-   wget https://github.com/tensorflow/text/archive/refs/tags/v2.16.1.zip
-   unzip ./v2.16.1.zip
-   cd text-2.16.1
+   wget https://github.com/tensorflow/text/archive/refs/tags/v2.17.0.zip
+   unzip ./v2.17.0.zip
+   cd text-2.17.0
    ````
 
-5. Modify some parameters of the source code to ensure correct build.
-
-   * `oss_scripts/configure.sh` to modify line 49:
-
-     ```shell
-     pip install tensorflow==2.16.1
-     ````
-   
-   * `oss_scripts/pip_package/setup.py` to modify line 75:
-   
-     ```python
-     install_requires=[
-         (
-             'tensorflow>=2.16.1, <2.17',
-         ),
-     ],
-     ```
-   
-6. Run the script.
+5. Run the script.
 
    ```shell
    ./oss_scripts/run_build.sh
    ````
-
-7. [Please do not forget to install the whl file.](https://github.com/sun1638650145/Libraries-and-Extensions-for-TensorFlow-for-Apple-Silicon/issues/2)
+   
+6. [Please do not forget to install the whl file.](https://github.com/sun1638650145/Libraries-and-Extensions-for-TensorFlow-for-Apple-Silicon/issues/2)
 
    ```shell
    pip install ./*.whl

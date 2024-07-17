@@ -2,7 +2,7 @@
 
 ## 注意 ⚠️
 
-请使用`Xcode 14.3`和`Apple clang version 14.0.3 (clang-1403.0.22.14.1)`及以上版本.
+`TensorFlow Text`已经提供Python `3.9-3.11`版本的Apple 芯片预编译`whl`文件, 你可以直接从这个[页面](https://pypi.org/project/tensorflow-text/)下载. 关于`Python 3.12`的支持问题请关注这个[issue](https://github.com/tensorflow/text/issues/1297).
 
 ## 必要条件
 
@@ -13,14 +13,14 @@
 1. 创建新的环境并安装Apple提供的依赖项.
 
    ```shell
-   conda create -n tensorflow-macos python=3.12 # 这里Python版本也可以使用Python 3.9, 3.10和3.11.
+   conda create -n tensorflow-macos python=3.11 # 这里Python版本也可以使用Python 3.9或3.10.
    conda activate tensorflow-macos
    ```
    
 2. 安装`tensorflow`.
 
    ```shell
-   pip install tensorflow==2.16.1
+   pip install tensorflow==2.17.0
    ```
 
 3. 安装`bazel 6.5.0`.
@@ -32,39 +32,21 @@
    bazel --version # 确保版本是6.5.0即可.
    ```
 
-4. 下载并解压`text 2.16.1`.
+4. 下载并解压`text 2.17.0`.
 
    ```shell
-   wget https://github.com/tensorflow/text/archive/refs/tags/v2.16.1.zip
-   unzip ./v2.16.1.zip
-   cd text-2.16.1
+   wget https://github.com/tensorflow/text/archive/refs/tags/v2.17.0.zip
+   unzip ./v2.17.0.zip
+   cd text-2.17.0
    ```
 
-5. 修改源码的一些参数以此确保能正确构建.
-
-   * `oss_scripts/configure.sh`修改第49行为
-
-     ```shell
-     pip install tensorflow==2.16.1
-     ```
-
-   * `oss_scripts/pip_package/setup.py`修改第75行为
-
-     ```python
-     install_requires=[
-         (
-             'tensorflow>=2.16.1, <2.17',
-         ),
-     ],
-     ```
-
-6. 运行脚本构建.
+5. 运行脚本构建.
 
    ```shell
    ./oss_scripts/run_build.sh
    ```
-
-7. [千万不要忘记安装whl文件.](https://github.com/sun1638650145/Libraries-and-Extensions-for-TensorFlow-for-Apple-Silicon/issues/2)
+   
+6. [千万不要忘记安装whl文件.](https://github.com/sun1638650145/Libraries-and-Extensions-for-TensorFlow-for-Apple-Silicon/issues/2)
 
    ```shell
    pip install ./*.whl
