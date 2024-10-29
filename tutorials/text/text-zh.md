@@ -20,7 +20,7 @@
 2. 安装`tensorflow`.
 
    ```shell
-   pip install tensorflow==2.17.0
+   pip install tensorflow==2.18.0
    ```
 
 3. 安装`bazel 6.5.0`.
@@ -32,12 +32,12 @@
    bazel --version # 确保版本是6.5.0即可.
    ```
 
-4. 下载并解压`text 2.17.0`.
+4. 下载并解压`text 2.18.0`.
 
    ```shell
-   wget https://github.com/tensorflow/text/archive/refs/tags/v2.17.0.zip
-   unzip ./v2.17.0.zip
-   cd text-2.17.0
+   wget https://github.com/tensorflow/text/archive/refs/tags/v2.18.0.zip
+   unzip ./v2.18.0.zip
+   cd text-2.18.0
    ```
 
 5. 运行脚本构建.
