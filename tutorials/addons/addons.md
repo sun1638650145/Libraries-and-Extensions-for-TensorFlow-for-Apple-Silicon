@@ -2,7 +2,7 @@
 
 ## Note ⚠️
 
-`TensorFlow Addons` already provides Apple silicon precompiled `whl` files for all Python versions, which you can download directly from this [page](https://pypi.org/project/tensorflow-addons/).
+`TensorFlow Addons` has ended development, and this tutorial is for building legacy versions only!
 
 ## Prerequisites
 

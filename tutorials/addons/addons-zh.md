@@ -2,7 +2,7 @@
 
 ## 注意 ⚠️
 
-`TensorFlow Addons`已经提供全部Python版本的Apple 芯片预编译`whl`文件, 你可以直接从这个[页面](https://pypi.org/project/tensorflow-addons/)下载.
+`TensorFlow Addons`已经停止服务, 当前是保留的旧版本构建教程!
 
 ## 必要条件
 
