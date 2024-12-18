@@ -1,9 +1,5 @@
 # Build TensorFlow Text from source
 
-## Note ⚠️
-
-`TensorFlow Text` already provides pre-compiled `whl` files for Apple silicon for Python `3.9-3.11`, which you can download directly from this [page](https://pypi.org/project/tensorflow-text/). For support regarding `Python 3.12`, please follow this [issue](https://github.com/tensorflow/text/issues/1297).
-
 ## Prerequisites
 
 It is assumed here that you have the necessary Unix-Like knowledge, [`brew`](https://brew.sh) and [`conda`](https://github.com/conda-forge/miniforge) have been installed in your terminal, and the installation and use methods of `brew` and `conda` will not be repeated here; most importantly, this tutorial is completely based on Apple silicon build, so make sure your Mac is Apple silicon.
@@ -13,7 +9,7 @@ It is assumed here that you have the necessary Unix-Like knowledge, [`brew`](htt
 1. Create a new Env and install the dependencies provided by Apple.
 
    ```shell
-   conda create -n tensorflow-macos python=3.11 # Python 3.9 and 3.10 are also supported.
+   conda create -n tensorflow-macos python=3.12 # Python 3.9, 3.10 and 3.11 are also supported.
    conda activate tensorflow-macos
    ````
    
@@ -32,12 +28,12 @@ It is assumed here that you have the necessary Unix-Like knowledge, [`brew`](htt
    bazel --version # Make sure the version is 6.5.0.
    ````
 
-4. Download and extract `text 2.18.0`.
+4. Download and extract `text 2.18.1`.
 
    ```shell
-   wget https://github.com/tensorflow/text/archive/refs/tags/v2.18.0.zip
-   unzip ./v2.18.0.zip
-   cd text-2.18.0
+   wget https://github.com/tensorflow/text/archive/refs/tags/v2.18.1.zip
+   unzip ./v2.18.1.zip
+   cd text-2.18.1
    ````
 
 5. Run the script.
