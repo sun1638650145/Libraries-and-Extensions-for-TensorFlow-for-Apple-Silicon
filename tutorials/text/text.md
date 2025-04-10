@@ -16,7 +16,7 @@ It is assumed here that you have the necessary Unix-Like knowledge, [`brew`](htt
 2. Install the `tensorflow`.
 
    ```shell
-   pip install tensorflow==2.18.0
+   pip install tensorflow==2.19.0
    ````
 
 3. Install `bazel 6.5.0`.
@@ -28,12 +28,12 @@ It is assumed here that you have the necessary Unix-Like knowledge, [`brew`](htt
    bazel --version # Make sure the version is 6.5.0.
    ````
 
-4. Download and extract `text 2.18.1`.
+4. Download and extract `text 2.19.0`.
 
    ```shell
-   wget https://github.com/tensorflow/text/archive/refs/tags/v2.18.1.zip
-   unzip ./v2.18.1.zip
-   cd text-2.18.1
+   wget https://github.com/tensorflow/text/archive/refs/tags/v2.19.0.zip
+   unzip ./v2.19.0.zip
+   cd text-2.19.0
    ````
 
 5. Run the script.
