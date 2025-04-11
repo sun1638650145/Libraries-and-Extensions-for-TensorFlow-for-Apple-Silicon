@@ -22,12 +22,12 @@
     bazel --version # 确保版本是6.5.0即可.
     ```
 
-3. 下载并解压`tensorflow 2.18.0`.
+3. 下载并解压`tensorflow 2.19.0`.
 
     ```shell
-    wget https://github.com/tensorflow/tensorflow/archive/refs/tags/v2.18.0.zip
-    unzip v2.18.0.zip
-    cd tensorflow-2.18.0
+    wget https://github.com/tensorflow/tensorflow/archive/refs/tags/v2.19.0.zip
+    unzip v2.19.0.zip
+    cd tensorflow-2.19.0
     ```
 
 4. 设置环境变量`TF_PYTHON_VERSION`.

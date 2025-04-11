@@ -22,12 +22,12 @@ Please use `Xcode 15.3` and `Apple clang version 15.0.0 (clang-1500.3.9.4)` or l
     bazel --version # Make sure the version is 6.5.0.
     ```
 
-3. Download and extract `tensorflow 2.18.0`.
+3. Download and extract `tensorflow 2.19.0`.
 
     ```shell
-    wget https://github.com/tensorflow/tensorflow/archive/refs/tags/v2.18.0.zip
-    unzip v2.18.0.zip
-    cd tensorflow-2.18.0
+    wget https://github.com/tensorflow/tensorflow/archive/refs/tags/v2.19.0.zip
+    unzip v2.19.0.zip
+    cd tensorflow-2.19.0
     ```
 
 4. Set the environment variable `TF_PYTHON_VERSION`.
