@@ -9,31 +9,31 @@
 1. 创建新的环境.
 
     ```shell
-    conda create -n tensorflow-macos python=3.12 # 这里Python版本也可以使用Python 3.9, 3.10和3.11.
+    conda create -n tensorflow-macos python=3.13 # 这里Python版本也可以使用Python 3.9, 3.10, 3.11和3.12.
     conda activate tensorflow-macos
     ```
 
-2. 安装`bazel 6.5.0`.
+2. 安装`bazel 7.4.1`.
 
     ```shell
-    wget https://github.com/bazelbuild/bazel/releases/download/6.5.0/bazel-6.5.0-darwin-arm64 -O bazel
+    wget https://github.com/bazelbuild/bazel/releases/download/7.4.1/bazel-7.4.1-darwin-arm64 -O bazel
     chmod +x bazel
     sudo mv bazel /usr/local/bin/
-    bazel --version # 确保版本是6.5.0即可.
+    bazel --version # 确保版本是7.4.1即可.
     ```
 
-3. 下载并解压`tensorflow 2.19.0`.
+3. 下载并解压`tensorflow 2.20.0`.
 
     ```shell
-    wget https://github.com/tensorflow/tensorflow/archive/refs/tags/v2.19.0.zip
-    unzip v2.19.0.zip
-    cd tensorflow-2.19.0
+    wget https://github.com/tensorflow/tensorflow/archive/refs/tags/v2.20.0.zip
+    unzip v2.20.0.zip
+    cd tensorflow-2.20.0
     ```
 
 4. 设置环境变量`TF_PYTHON_VERSION`.
 
     ```shell
-    export TF_PYTHON_VERSION=3.12 # 请和上面的Python版本对应.
+    export TF_PYTHON_VERSION=3.13 # 请和上面的Python版本对应.
     ```
 
 5. 配置build.
@@ -42,7 +42,7 @@
     ./configure # 请全部使用默认选项.
     ```
 
-6. 构建`tensorflow`(在作者本人的`M1 MacBook Pro 16GB`大概需要`70`分钟).
+6. 构建`tensorflow`(在作者本人的`M4 Mac mini 32GB`大概需要`55`分钟).
 
     ```shell
     bazel build //tensorflow/tools/pip_package:wheel
@@ -51,6 +51,7 @@
 7. 安装`whl`文件.
 
      ```shell
+     mv ./bazel-bin/tensorflow/tools/pip_package/wheel_house/*.whl ./bazel-bin/tensorflow/tools/pip_package/wheel_house/tensorflow-2.20.0-cp313-cp313-macosx_12_0_arm64.whl # 请和上面的tensorflow, Python版本对应.
      pip install ./bazel-bin/tensorflow/tools/pip_package/wheel_house/*.whl
      ```
 

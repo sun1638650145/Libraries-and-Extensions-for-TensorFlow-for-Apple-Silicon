@@ -9,31 +9,31 @@ Please use `Xcode 15.3` and `Apple clang version 15.0.0 (clang-1500.3.9.4)` or l
 1. Create a new Env.
 
     ```shell
-    conda create -n tensorflow-macos python=3.12 # Python 3.9, 3.10 and 3.11 are also supported.
+    conda create -n tensorflow-macos python=3.13 # Python 3.9, 3.10, 3.11 and 3.12 are also supported.
     conda activate tensorflow-macos
     ```
 
-2. Install `bazel 6.5.0`.
+2. Install `bazel 7.4.1`.
 
     ```shell
-    wget https://github.com/bazelbuild/bazel/releases/download/6.5.0/bazel-6.5.0-darwin-arm64 -O bazel
+    wget https://github.com/bazelbuild/bazel/releases/download/7.4.1/bazel-7.4.1-darwin-arm64 -O bazel
     chmod +x bazel
     sudo mv bazel /usr/local/bin/
-    bazel --version # Make sure the version is 6.5.0.
+    bazel --version # Make sure the version is 7.4.1.
     ```
 
-3. Download and extract `tensorflow 2.19.0`.
+3. Download and extract `tensorflow 2.20.0`.
 
     ```shell
-    wget https://github.com/tensorflow/tensorflow/archive/refs/tags/v2.19.0.zip
-    unzip v2.19.0.zip
-    cd tensorflow-2.19.0
+    wget https://github.com/tensorflow/tensorflow/archive/refs/tags/v2.20.0.zip
+    unzip v2.20.0.zip
+    cd tensorflow-2.20.0
     ```
 
 4. Set the environment variable `TF_PYTHON_VERSION`.
 
     ```shell
-    export TF_PYTHON_VERSION=3.12 # Corresponding to the Python version above, please.
+    export TF_PYTHON_VERSION=3.13 # Corresponding to the Python version above, please.
     ```
 
 5. Configure the build.
@@ -42,7 +42,7 @@ Please use `Xcode 15.3` and `Apple clang version 15.0.0 (clang-1500.3.9.4)` or l
     ./configure # Please use all default options.
     ```
 
-6. Build `tensorflow` (which takes approximately `70` minutes on the author's M1 MacBook Pro `16`GB).
+6. Build `tensorflow` (which takes approximately `55` minutes on the author's M4 Mac mini `32`GB).
 
     ```shell
     bazel build //tensorflow/tools/pip_package:wheel
@@ -51,6 +51,7 @@ Please use `Xcode 15.3` and `Apple clang version 15.0.0 (clang-1500.3.9.4)` or l
 7. Install the `whl` file.
 
     ```shell
+    mv ./bazel-bin/tensorflow/tools/pip_package/wheel_house/*.whl ./bazel-bin/tensorflow/tools/pip_package/wheel_house/tensorflow-2.20.0-cp313-cp313-macosx_12_0_arm64.whl # Corresponding to the tensorflow and Python version above, please.
     pip install ./bazel-bin/tensorflow/tools/pip_package/wheel_house/*.whl
     ```
 
