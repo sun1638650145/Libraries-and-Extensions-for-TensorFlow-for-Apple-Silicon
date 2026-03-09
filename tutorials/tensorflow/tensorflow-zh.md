@@ -9,25 +9,25 @@
 1. 创建新的环境.
 
     ```shell
-    conda create -n tensorflow-macos python=3.13 # 这里Python版本也可以使用Python 3.9, 3.10, 3.11和3.12.
+    conda create -n tensorflow-macos python=3.13 # 这里Python版本也可以使用3.10, 3.11和3.12.
     conda activate tensorflow-macos
     ```
 
-2. 安装`bazel 7.4.1`.
+2. 安装`bazel 7.7.0`.
 
     ```shell
-    wget https://github.com/bazelbuild/bazel/releases/download/7.4.1/bazel-7.4.1-darwin-arm64 -O bazel
+    wget https://github.com/bazelbuild/bazel/releases/download/7.7.0/bazel-7.7.0-darwin-arm64 -O bazel
     chmod +x bazel
     sudo mv bazel /usr/local/bin/
-    bazel --version # 确保版本是7.4.1即可.
+    bazel --version # 确保版本是7.7.0即可.
     ```
 
-3. 下载并解压`tensorflow 2.20.0`.
+3. 下载并解压`tensorflow 2.21.0`.
 
     ```shell
-    wget https://github.com/tensorflow/tensorflow/archive/refs/tags/v2.20.0.zip
-    unzip v2.20.0.zip
-    cd tensorflow-2.20.0
+    wget https://github.com/tensorflow/tensorflow/archive/refs/tags/v2.21.0.zip
+    unzip v2.21.0.zip
+    cd tensorflow-2.21.0
     ```
 
 4. 设置环境变量`TF_PYTHON_VERSION`.
@@ -51,7 +51,7 @@
 7. 安装`whl`文件.
 
      ```shell
-     mv ./bazel-bin/tensorflow/tools/pip_package/wheel_house/*.whl ./bazel-bin/tensorflow/tools/pip_package/wheel_house/tensorflow-2.20.0-cp313-cp313-macosx_12_0_arm64.whl # 请和上面的tensorflow, Python版本对应.
+     mv ./bazel-bin/tensorflow/tools/pip_package/wheel_house/*.whl ./bazel-bin/tensorflow/tools/pip_package/wheel_house/tensorflow-2.21.0-cp313-cp313-macosx_12_0_arm64.whl # 请和上面的tensorflow, Python版本对应.
      pip install ./bazel-bin/tensorflow/tools/pip_package/wheel_house/*.whl
      ```
 

@@ -16,3 +16,4 @@
 * 从`tensorflow 2.14.0`开始移除了`Python 3.8`的支持.
 * 从`tensorflow 2.16.1`开始提供`Python 3.12`的支持.
 * 从`tensorflow 2.20.0`开始提供`Python 3.13`的支持.
+* 从`tensorflow 2.21.0`开始移除了`Python 3.9`的支持.
