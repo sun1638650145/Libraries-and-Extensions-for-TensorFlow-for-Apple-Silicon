@@ -28,12 +28,12 @@
    bazel --version # 确保版本是7.4.1即可.
    ```
 
-4. 下载并解压`text 2.20.0`.
+4. 下载并解压`text 2.20.1`.
 
    ```shell
-   wget https://github.com/tensorflow/text/archive/refs/tags/v2.20.0.zip
-   unzip ./v2.20.0.zip
-   cd text-2.20.0
+   wget https://github.com/tensorflow/text/archive/refs/tags/v2.20.1.zip
+   unzip ./v2.20.1.zip
+   cd text-2.20.1
    ```
 
 5. 运行脚本构建.

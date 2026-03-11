@@ -28,12 +28,12 @@ It is assumed here that you have the necessary Unix-Like knowledge, [`brew`](htt
    bazel --version # Make sure the version is 7.4.1.
    ````
 
-4. Download and extract `text 2.20.0`.
+4. Download and extract `text 2.20.1`.
 
    ```shell
-   wget https://github.com/tensorflow/text/archive/refs/tags/v2.20.0.zip
-   unzip ./v2.20.0.zip
-   cd text-2.20.0
+   wget https://github.com/tensorflow/text/archive/refs/tags/v2.20.1.zip
+   unzip ./v2.20.1.zip
+   cd text-2.20.1
    ````
 
 5. Run the script.
