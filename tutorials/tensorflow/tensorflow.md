@@ -30,9 +30,10 @@ Please use `Xcode 15.3` and `Apple clang version 15.0.0 (clang-1500.3.9.4)` or l
     cd tensorflow-2.21.0
     ```
 
-4. Set the environment variable `TF_PYTHON_VERSION`.
+4. Set the environment variable `MACOSX_DEPLOYMENT_TARGET` and `TF_PYTHON_VERSION`.
 
     ```shell
+    export MACOSX_DEPLOYMENT_TARGET=12.0
     export TF_PYTHON_VERSION=3.13 # Corresponding to the Python version above, please.
     ```
 
@@ -51,7 +52,6 @@ Please use `Xcode 15.3` and `Apple clang version 15.0.0 (clang-1500.3.9.4)` or l
 7. Install the `whl` file.
 
     ```shell
-    mv ./bazel-bin/tensorflow/tools/pip_package/wheel_house/*.whl ./bazel-bin/tensorflow/tools/pip_package/wheel_house/tensorflow-2.21.0-cp313-cp313-macosx_12_0_arm64.whl # Corresponding to the tensorflow and Python version above, please.
     pip install ./bazel-bin/tensorflow/tools/pip_package/wheel_house/*.whl
     ```
 

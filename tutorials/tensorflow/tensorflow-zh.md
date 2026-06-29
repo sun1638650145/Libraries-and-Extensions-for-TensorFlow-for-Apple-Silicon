@@ -30,9 +30,10 @@
     cd tensorflow-2.21.0
     ```
 
-4. 设置环境变量`TF_PYTHON_VERSION`.
+4. 设置环境变量`MACOSX_DEPLOYMENT_TARGET`和`TF_PYTHON_VERSION`.
 
     ```shell
+    export MACOSX_DEPLOYMENT_TARGET=12.0
     export TF_PYTHON_VERSION=3.13 # 请和上面的Python版本对应.
     ```
 
@@ -51,7 +52,6 @@
 7. 安装`whl`文件.
 
      ```shell
-     mv ./bazel-bin/tensorflow/tools/pip_package/wheel_house/*.whl ./bazel-bin/tensorflow/tools/pip_package/wheel_house/tensorflow-2.21.0-cp313-cp313-macosx_12_0_arm64.whl # 请和上面的tensorflow, Python版本对应.
      pip install ./bazel-bin/tensorflow/tools/pip_package/wheel_house/*.whl
      ```
 
