@@ -9,31 +9,31 @@
 1. 创建新的环境并安装Apple提供的依赖项.
 
    ```shell
-   conda create -n tensorflow-macos python=3.13 # 这里Python版本也可以使用Python 3.9, 3.10, 3.11和3.12.
+   conda create -n tensorflow-macos python=3.13 # 这里Python版本也可以使用Python 3.10, 3.11和3.12.
    conda activate tensorflow-macos
    ```
    
 2. 安装`tensorflow`.
 
    ```shell
-   pip install tensorflow==2.20.0
+   pip install tensorflow==2.21.0
    ```
 
-3. 安装`bazel 7.4.1`.
+3. 安装`bazel 7.7.0`.
 
    ```shell
-   wget https://github.com/bazelbuild/bazel/releases/download/7.4.1/bazel-7.4.1-darwin-arm64 -O bazel
+   wget https://github.com/bazelbuild/bazel/releases/download/7.7.0/bazel-7.7.0-darwin-arm64 -O bazel
    chmod +x bazel
    sudo mv bazel /usr/local/bin/
-   bazel --version # 确保版本是7.4.1即可.
+   bazel --version # 确保版本是7.7.0即可.
    ```
 
-4. 下载并解压`text 2.20.1`.
+4. 下载并解压`text 2.21.1`.
 
    ```shell
-   wget https://github.com/tensorflow/text/archive/refs/tags/v2.20.1.zip
-   unzip ./v2.20.1.zip
-   cd text-2.20.1
+   wget https://github.com/tensorflow/text/archive/refs/tags/v2.21.1.zip
+   unzip ./v2.21.1.zip
+   cd text-2.21.1
    ```
 
 5. 运行脚本构建.
